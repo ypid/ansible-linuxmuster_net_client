@@ -1,8 +1,24 @@
 ## linuxmuster_net-client-customize
 
 [![Travis CI](http://img.shields.io/travis/ypid/ansible-linuxmuster_net-client-customize.svg?style=flat)](http://travis-ci.org/ypid/ansible-linuxmuster_net-client-customize)
+[![Ansible Galaxy](http://img.shields.io/badge/galaxy-ypid.linuxmuster_net–client–customize-660198.svg?style=flat)](https://galaxy.ansible.com/list#/roles/4058)
+[![Platforms](http://img.shields.io/badge/platforms-ubuntu-lightgrey.svg?style=flat)](#)
 
 
+Apply common customizations to a linuxmuster.net client.
+
+See [linuxmuster.net](https://linuxmuster.net) for more information.
+
+### Installation
+
+This role requires at least Ansible `v1.3`. To install it, run:
+
+    ansible-galaxy install ypid.linuxmuster_net-client-customize
+
+To install via git, run either:
+
+    git clone https://github.com/ypid/ansible-linuxmuster_net-client-customize ypid.linuxmuster_net-client-customize
+    git submodule add https://github.com/ypid/ansible-linuxmuster_net-client-customize roles/ypid.linuxmuster_net-client-customize
 
 
 

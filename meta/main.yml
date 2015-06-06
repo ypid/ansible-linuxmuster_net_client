@@ -7,7 +7,7 @@ galaxy_info:
   platforms:
   - name: Ubuntu
     versions:
-    - all
+      - trusty
   categories:
     - system
   min_ansible_version: 1.3
@@ -15,8 +15,9 @@ dependencies: []
 ansigenome_info:
   github_url: "https://github.com/ypid/ansible-linuxmuster_net-client-customize"
   git_branch: "master"
-  # galaxy_id: "2980"
+  galaxy_id: "4058"
 
   travis: True
 
-  # synopsis: |
+  synopsis: |
+    See [linuxmuster.net](https://linuxmuster.net) for more information.
