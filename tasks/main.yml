@@ -18,3 +18,16 @@
     set_remote_user: no
   with_flattened:
     - linuxmuster_net_client_customize_etc_delete_sync
+
+- name: Include OS specific variables
+  include_vars: "ypid_packages.yml"
+
+- name: Install all packages
+  apt:
+    name: "{{ item }}"
+    state: 'latest'
+  when: item is defined and item
+  with_flattened:
+    - linuxmuster_net_client_apt_packages
+    - linuxmuster_net_client_apt_packages_group
+    - linuxmuster_net_client_apt_packages_host

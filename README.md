@@ -32,6 +32,14 @@ List of default variables available in the inventory:
     linuxmuster_net_client_customize_etc_delete_sync:
       # - "/etc/linuxmuster-client/pre-mount.d"
       # - "/etc/linuxmuster-client/post-mount.d"
+    
+    
+    ## Overwrites vars/ypid_packages.yml
+    # linuxmuster_net_client_apt_packages:
+    #  - "vim"
+    
+    linuxmuster_net_client_apt_packages_group:
+    linuxmuster_net_client_apt_packages_host:
 
 
 
