@@ -1,0 +1,6 @@
+---
+
+## Added paths here which should be synchronized to the target deleting all files not available on the source.
+linuxmuster_net_client_customize_etc_delete_sync:
+  # - "/etc/linuxmuster-client/pre-mount.d"
+  # - "/etc/linuxmuster-client/post-mount.d"

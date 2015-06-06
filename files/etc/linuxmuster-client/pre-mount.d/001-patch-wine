@@ -1,0 +1,20 @@
+# this file is sourced from /usr/sbin/linuxmuster-pam-mount
+
+# source config file
+. /etc/linuxmuster-client/profile/profile.conf || exit 1
+# source profile functions
+. /var/lib/linuxmuster-client-profile/functions.inc || exit 1
+
+# log some info
+$LOGGING && msg2log pre-mount "Entering 035-patch-wine $1 $2"
+
+# This script gets executed only once, before the users home from the
+# server gets mounted. In this case $USER and $VOLUME are the same.
+if [ $USER != $VOLUME ]; then
+    return 0
+fi
+
+$LOGGING && msg2log pre-mount "find $HOMEDIR/.local/share/applications -name '*.desktop' -print0 | xargs -0 sed -i s#/home/linuxadmin#$HOMEDIR#g"
+find "$HOMEDIR/.local/share/applications" -name '*.desktop' -print0 | xargs -0 sed -i "s#/home/linuxadmin#$HOMEDIR#g"
+
+mkdir -p "$HOMEDIR/.wine/drive_c/users"

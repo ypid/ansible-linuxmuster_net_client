@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# this file is sourced from /usr/sbin/linuxmuster-pam-mount
+
+# source config file
+. /etc/linuxmuster-client/profile/profile.conf || exit 1
+# source profile functions
+. /var/lib/linuxmuster-client-profile/functions.inc || exit 1
+
+# log some info
+$LOGGING && msg2log pre-mount "Entering 001-italc-link $1 $2"
+
+# this script gets executed only once, before the users home from the
+# server gets mounted. in this case $USER and $VOLUME are the same
+# if [ $USER != $VOLUME ]; then
+    # return 0
+# fi
+
+# log some info
+$LOGGING && msg2log pre-mount "Running 001-italc-link $1 $2"
+ln -s /home/share/teachers/.italc $HOMEDIR

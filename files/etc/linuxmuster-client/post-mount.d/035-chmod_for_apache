@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Konfiguration einlesen für
+# Basics zu linuxmuster-clients
+. /etc/linuxmuster-client/linuxmuster-client.conf || exit 1
+# Verzeichnis für Einstellungen im Heimatverzeichnis auf dem Server
+. /etc/linuxmuster-client/profile/home-preference.conf || exit 1
+
+# Dieses Script soll nur einmal ausgeführt werden.
+# Nur nachdem das Serverhome des Benutzers gemountet wurde,
+# sind $USER und $VOLUME identisch, in allen anderen Fällen
+# bricht das Script ab.
+if [ $USER != $VOLUME ]; then
+    return 0
+fi
+
+chmod o+rX "$HOMEDIR/$HOMEFOLDERNAME" -R
+chmod o+rX "$HOMEDIR/$HOMEFOLDERNAME/public_html" -R

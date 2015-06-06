@@ -1,0 +1,22 @@
+---
+
+galaxy_info:
+  author: Robin Schneider
+  description: Apply common customizations to a linuxmuster.net client.
+  license: AGPLv3
+  platforms:
+  - name: Ubuntu
+    versions:
+    - all
+  categories:
+    - system
+  min_ansible_version: 1.3
+dependencies: []
+ansigenome_info:
+  github_url: "https://github.com/ypid/ansible-linuxmuster_net-client-customize"
+  git_branch: "master"
+  # galaxy_id: "2980"
+
+  travis: True
+
+  # synopsis: |

@@ -1,0 +1,7 @@
+---
+
+- hosts: localhost
+  remote_user: root
+
+  roles:
+    - ansible-linuxmuster_net-client-customize

@@ -1,0 +1,20 @@
+---
+
+- name: Copy custom configuration files to the client
+  synchronize:
+    src: "./etc/"
+    dest: "/etc"
+    recursive: yes
+    links: yes
+    set_remote_user: no
+
+- name: Copy custom configuration files to the client and delete all other files
+  synchronize:
+    src: ".{{ item }}/"
+    dest: "{{ item }}"
+    recursive: yes
+    links: yes
+    delete: yes
+    set_remote_user: no
+  with_flattened:
+    - linuxmuster_net_client_customize_etc_delete_sync
