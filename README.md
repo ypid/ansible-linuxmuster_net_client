@@ -1,6 +1,5 @@
 ## linuxmuster_net-client-customize
 
-[![Travis CI](http://img.shields.io/travis/ypid/ansible-linuxmuster_net-client-customize.svg?style=flat)](http://travis-ci.org/ypid/ansible-linuxmuster_net-client-customize)
 [![Ansible Galaxy](http://img.shields.io/badge/galaxy-ypid.linuxmuster_net–client–customize-660198.svg?style=flat)](https://galaxy.ansible.com/list#/roles/4058)
 [![Platforms](http://img.shields.io/badge/platforms-ubuntu-lightgrey.svg?style=flat)](#)
 

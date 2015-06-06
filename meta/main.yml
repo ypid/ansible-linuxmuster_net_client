@@ -17,7 +17,7 @@ ansigenome_info:
   git_branch: "master"
   galaxy_id: "4058"
 
-  travis: True
+  travis: False
 
   synopsis: |
     See [linuxmuster.net](https://linuxmuster.net) for more information.
