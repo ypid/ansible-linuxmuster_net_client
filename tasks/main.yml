@@ -16,6 +16,7 @@
     links: yes
     delete: yes
     set_remote_user: no
+  when: item is defined and item
   with_flattened:
     - linuxmuster_net_client_customize_etc_delete_sync
 
