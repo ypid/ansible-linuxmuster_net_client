@@ -1,5 +1,12 @@
 ---
 
+linuxmuster_net_client_customize_auto_shutdown_enable: True
+linuxmuster_net_client_customize_auto_shutdown_time:
+  - hour: "17"
+    minute: "15"
+  - hour: "20"
+  - hour: "00"
+
 ## Added paths here which should be synchronized to the target deleting all files not available on the source.
 linuxmuster_net_client_customize_etc_delete_sync:
   # - "/etc/linuxmuster-client/pre-mount.d"

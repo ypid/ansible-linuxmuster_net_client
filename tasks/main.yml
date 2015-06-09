@@ -6,7 +6,7 @@
     dest: "/etc"
     recursive: yes
     links: yes
-    set_remote_user: no
+    # set_remote_user: no
 
 - name: Copy custom configuration files to the client and delete all other files
   synchronize:
@@ -20,6 +20,23 @@
   with_flattened:
     - linuxmuster_net_client_customize_etc_delete_sync
 
+## FIXME: Remove when https://github.com/linuxmuster/linuxmuster-client-extras/pull/3 is merged.
+- name: Make sure the fixed shutdown script is available
+  copy:
+    src: "check-shutdown"
+    dest: "/usr/bin/check-shutdown"
+    mode: "0755"
+    owner: root
+    group: root
+
+- name: Create auto shutdown cron job
+  template:
+    src: "cron.auto_shutdown.j2"
+    dest: "/etc/cron.d/auto-shutdown"
+    mode: "0644"
+    owner: root
+    group: root
+
 - name: Include OS specific variables
   include_vars: "ypid_packages.yml"
 
@@ -32,3 +49,4 @@
     - linuxmuster_net_client_apt_packages
     - linuxmuster_net_client_apt_packages_group
     - linuxmuster_net_client_apt_packages_host
+  tags: package_install
