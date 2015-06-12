@@ -16,8 +16,8 @@ This role requires at least Ansible `v1.3`. To install it, run:
 
 To install via git, run either:
 
-    git clone https://github.com/ypid/ansible-linuxmuster_net-client-customize ypid.linuxmuster_net-client-customize
-    git submodule add https://github.com/ypid/ansible-linuxmuster_net-client-customize roles/ypid.linuxmuster_net-client-customize
+    git clone https://github.com/ypid/ansible-linuxmuster_net-client-customize.git ypid.linuxmuster_net-client-customize
+    git submodule add https://github.com/ypid/ansible-linuxmuster_net-client-customize.git roles/ypid.linuxmuster_net-client-customize
 
 
 
@@ -27,6 +27,10 @@ To install via git, run either:
 List of default variables available in the inventory:
 
     ---
+    
+    linuxmuster_net_client_customize_template_user: "linuxadmin"
+    
+    linuxmuster_net_client_customize_copy_custom_config_etc: True
     
     linuxmuster_net_client_customize_auto_shutdown_enable: True
     linuxmuster_net_client_customize_auto_shutdown_time:
@@ -41,10 +45,12 @@ List of default variables available in the inventory:
       # - "/etc/linuxmuster-client/post-mount.d"
     
     
-    ## Overwrites vars/ypid_packages.yml
-    # linuxmuster_net_client_apt_packages:
-    #  - "vim"
+    ## If the following variable lists no packages, the default packages from vars/ypid_packages.yml
+    ## will be installed.
+    linuxmuster_net_client_apt_packages:
+      # - "vim"
     
+    ## Additional packages, configured in group and host scope.
     linuxmuster_net_client_apt_packages_group:
     linuxmuster_net_client_apt_packages_host:
 

@@ -1,5 +1,9 @@
 ---
 
+linuxmuster_net_client_customize_template_user: "linuxadmin"
+
+linuxmuster_net_client_customize_copy_custom_config_etc: True
+
 linuxmuster_net_client_customize_auto_shutdown_enable: True
 linuxmuster_net_client_customize_auto_shutdown_time:
   - hour: "17"
@@ -13,9 +17,11 @@ linuxmuster_net_client_customize_etc_delete_sync:
   # - "/etc/linuxmuster-client/post-mount.d"
 
 
-## Overwrites vars/ypid_packages.yml
-# linuxmuster_net_client_apt_packages:
-#  - "vim"
+## If the following variable lists no packages, the default packages from vars/ypid_packages.yml
+## will be installed.
+linuxmuster_net_client_apt_packages:
+  # - "vim"
 
+## Additional packages, configured in group and host scope.
 linuxmuster_net_client_apt_packages_group:
 linuxmuster_net_client_apt_packages_host:

@@ -6,7 +6,7 @@
 export LANG="de_DE.utf8"
 export PATH="/usr/bin:/sbin:/bin"
 
-TARGET_USER="$(users | cut --fields 1 --delimiter ' ')"
+TARGET_USER="$(users | sed 's/ /\n/g' | grep -v ansible | head --lines 1)"
 run_in_user_context="sudo -u ${TARGET_USER}"
 
 ## Prüfen, ob ein Benutzer angemeldet ist; wenn nein shutdown, wenn ja...

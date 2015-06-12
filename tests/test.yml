@@ -2,6 +2,9 @@
 
 - hosts: localhost
   remote_user: root
+  vars:
+    linuxmuster_net_client_apt_packages:
+      - "vim"
 
   roles:
     - ansible-linuxmuster_net-client-customize
