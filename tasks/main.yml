@@ -39,6 +39,36 @@
     owner: root
     group: root
 
+- name: Create local scripts script
+  template:
+    src: "{{ item.file }}.j2"
+    dest: "/usr/local/bin/{{ item.file }}"
+    mode: "{{ item.mode | default('0744') }}"
+    ## Makes no sense to run as normal user.
+    validate: '{{ item.validate | default(omit) }}'
+    owner: root
+    group: root
+  when: ((item.when is defined and item.when != 'False') or item.when is not defined)
+  with_items:
+    - file: "sync_localuser"
+      when: "{{ linuxmuster_net_client_customize_local_user_enable }}"
+    - file: "make_clean_for_image"
+
+- name: Enable sync_localuser script
+  lineinfile:
+    dest: '/etc/rc.local'
+    regexp: "^{{ linuxmuster_net_client_customize_local_user_script_filepath }}"
+    line: "{{ linuxmuster_net_client_customize_local_user_script_filepath }} 1> /var/log/sync_localuser.log"
+    insertbefore: '^exit 0'
+  when: linuxmuster_net_client_customize_local_user_enable
+
+- name: Disable sync_localuser script
+  lineinfile:
+    dest: '/etc/rc.local'
+    line: "{{ linuxmuster_net_client_customize_local_user_script_filepath }}"
+    state: absent
+  when: not linuxmuster_net_client_customize_local_user_enable
+
 - name: Include OS specific variables
   include_vars: "ypid_packages.yml"
   when: linuxmuster_net_client_apt_packages is not iterable

@@ -2,6 +2,19 @@
 
 linuxmuster_net_client_customize_template_user: "linuxadmin"
 
+## Work in progress: (((
+## ToDo: Test on fresh system. Create user.
+# passwd localuser -d
+## Local user name. Can also login, when the client is offline.
+linuxmuster_net_client_customize_local_user_name: "localuser"
+linuxmuster_net_client_customize_local_user_enable: False
+linuxmuster_net_client_customize_local_user_script_filepath: '/usr/local/bin/sync_localuser'
+
+## Create the following directories for the local_user.
+linuxmuster_net_client_customize_local_user_directories:
+  - "Dokumente_tmp"
+## )))
+
 linuxmuster_net_client_customize_copy_custom_config_etc: True
 
 linuxmuster_net_client_customize_auto_shutdown_enable: True

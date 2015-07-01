@@ -1,0 +1,31 @@
+#!/bin/bash
+## {{ ansible_managed }}
+
+. /etc/linuxmuster-client/profile/profile.conf || exit 1
+USER='{{ linuxmuster_net_client_customize_local_user_name }}'
+HOMEDIR="/home/$USER"
+
+rm "$HOMEDIR/" -rf
+rsync --recursive $RSYNC_OPTIONS "/home/$PROFILE_USER/" "$HOMEDIR/"
+
+{% if linuxmuster_net_client_customize_local_user_directories is defined and linuxmuster_net_client_customize_local_user_directories is iterable %}
+{% for dir in linuxmuster_net_client_customize_local_user_directories %}
+mkdir -p "$HOMEDIR/{{ dir }}"
+{% endfor %}
+{% endif %}
+
+## Changed positions for normal users.
+rm "$HOMEDIR/.config/nemo/desktop-metadata"
+
+mkdir -p "$HOMEDIR/.wine/drive_c/users"
+
+ln -s "/home/$PROFILE_USER/.wine/drive_c/Program Files" "$HOMEDIR/.wine/drive_c"
+ln -s "/home/$PROFILE_USER/.wine/drive_c/windows" "$HOMEDIR/.wine/drive_c"
+ln -s "/home/$PROFILE_USER/.wine/drive_c/users/Public" "$HOMEDIR/.wine/drive_c/users"
+ln -s / "$HOMEDIR/.wine/dosdevices/z:"
+ln -s "$HOMEDIR/.wine/drive_c" "$HOMEDIR/.wine/dosdevices/c:"
+
+## TODO(ypid): Gets created on login.
+rmdir "$HOMEDIR/Home_auf_Server"
+
+chown "$USER:" -R "$HOMEDIR"
