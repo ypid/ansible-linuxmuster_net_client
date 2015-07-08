@@ -11,25 +11,26 @@ See [linuxmuster.net](https://linuxmuster.net) for more information.
 ### Package list
 The [package list](/vars/ypid_packages.yml) which is included in this role has been selected for a [Gymnasium](https://en.wikipedia.org/wiki/Gymnasium_%28school%29).
 It includes many programs like:
-*   Office: [LibreOffice](https://www.libreoffice.org/), [TeXLive](https://www.tug.org/texlive/)
-*   Internet: [Firefox](https://www.mozilla.org/de/firefox/new/), [Thunderbird](https://www.mozilla.org/de/thunderbird/) (with [enigmail Plugin](https://www.thunderbird-mail.de/wiki/Enigmail_OpenPGP))
-*   Education:
-    * Mathematic: [kmplot](https://edu.kde.org/kmplot/), [geogebra](https://www.geogebra.org/), [jfractionlab](http://jfractionlab.sourceforge.net/), speedcrunch, kcalc, qalculate-gtk, tilem
-    * Chemistry: [kalzium](https://edu.kde.org/kalzium/), gelemental, gperiodic
-    * GIS: [josm](https://josm.openstreetmap.de/), [marble](https://marble.kde.org/), [viking](http://sourceforge.net/projects/viking/)
-    * Astronomy: [stellarium](http://www.stellarium.org/), [celestia](http://www.shatters.net/celestia/), [gpredict](http://gpredict.oz9aec.net/)
-    * Medical: [invesalius](http://www.cti.gov.br/invesalius/)
-    * Language: [parley](https://edu.kde.org/applications/all/parley), [gnome-dictionary](https://wiki.gnome.org/Apps/Dictionary) (together with a local dict server for fast queries), [ktouch](https://edu.kde.org/applications/all/ktouch)
-*   Media: [VLC](https://www.videolan.org/vlc/), [GIMP](http://www.gimp.org/), [Blender](https://www.blender.org/), [Clementine](https://www.clementine-player.org/), [Audacity](http://audacityteam.org/)
-*   Software development:
-    * Python
-    * C/C++
-    * Qt
-    * HTML, JavaScript, CSS
-    * SQL (MySQL Database Server with local Database for students)
-    * Java/Android
-    * Needed tools like [Vim](http://www.vim.org/), [emacs](https://www.gnu.org/software/emacs/), [git](https://git-scm.com/), [eclipse](https://eclipse.org/)
-*   Networking: [Wireshark](https://www.wireshark.org/), [packeth](http://packeth.sourceforge.net/)
+
+* Office: [LibreOffice](https://www.libreoffice.org/), [TeXLive](https://www.tug.org/texlive/)
+* Internet: [Firefox](https://www.mozilla.org/de/firefox/new/), [Thunderbird](https://www.mozilla.org/de/thunderbird/) (with [enigmail Plugin](https://www.thunderbird-mail.de/wiki/Enigmail_OpenPGP))
+* Education:
+  * Mathematic: [kmplot](https://edu.kde.org/kmplot/), [geogebra](https://www.geogebra.org/), [jfractionlab](http://jfractionlab.sourceforge.net/), speedcrunch, kcalc, qalculate-gtk, tilem
+  * Chemistry: [kalzium](https://edu.kde.org/kalzium/), gelemental, gperiodic
+  * GIS: [josm](https://josm.openstreetmap.de/), [marble](https://marble.kde.org/), [viking](http://sourceforge.net/projects/viking/)
+  * Astronomy: [stellarium](http://www.stellarium.org/), [celestia](http://www.shatters.net/celestia/), [gpredict](http://gpredict.oz9aec.net/)
+  * Medical: [invesalius](http://www.cti.gov.br/invesalius/)
+  * Language: [parley](https://edu.kde.org/applications/all/parley), [gnome-dictionary](https://wiki.gnome.org/Apps/Dictionary) (together with a local dict server for fast queries), [ktouch](https://edu.kde.org/applications/all/ktouch)
+* Media: [VLC](https://www.videolan.org/vlc/), [GIMP](http://www.gimp.org/), [Blender](https://www.blender.org/), [Clementine](https://www.clementine-player.org/), [Audacity](http://audacityteam.org/)
+* Software development:
+  * Python
+  * C/C++
+  * Qt
+  * HTML, JavaScript, CSS
+  * SQL (MySQL Database Server with local Database for students)
+  * Java/Android
+  * Needed tools like [Vim](http://www.vim.org/), [emacs](https://www.gnu.org/software/emacs/), [git](https://git-scm.com/), [eclipse](https://eclipse.org/)
+* Networking: [Wireshark](https://www.wireshark.org/), [packeth](http://packeth.sourceforge.net/)
 
     Reasons: To learn how networks work. Students don’t have the permissions to actually sniff the network of course but there are [many dumps](https://wiki.wireshark.org/SampleCaptures) which can be analyzed.
 
@@ -79,7 +80,7 @@ List of default variables available in the inventory:
       - hour: "20"
       - hour: "00"
     
-    ## Added paths here which should be synchronized to the target deleting all files not available on the source.
+    ## Add paths here which should be synchronized to the target deleting all files not available on the source.
     linuxmuster_net_client_customize_etc_delete_sync:
       # - "/etc/linuxmuster-client/pre-mount.d"
       # - "/etc/linuxmuster-client/post-mount.d"
