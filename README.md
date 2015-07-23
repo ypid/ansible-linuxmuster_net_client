@@ -34,7 +34,7 @@ It includes many programs like:
 
     Reasons: To learn how networks work. Students don’t have the permissions to actually sniff the network of course but there are [many dumps](https://wiki.wireshark.org/SampleCaptures) which can be analyzed.
 
-The compressed image size is currently 7.2 GiB which is tiny compared to a Windows 7 image (with basically useful nothing in it).
+The compressed image size is currently 7.2 GiB which is tiny compared to a Windows 7 image (with basically nothing useful in it).
 
 ### Installation
 
@@ -61,7 +61,7 @@ List of default variables available in the inventory:
     ## Work in progress: (((
     ## ToDo: Test on fresh system. Create user.
     # passwd localuser -d
-    ## Local user name. Can also login, when the client is offline.
+    ## Local user name. Can also login, when the client is offline (no connection to the server).
     linuxmuster_net_client_customize_local_user_name: "localuser"
     linuxmuster_net_client_customize_local_user_enable: False
     linuxmuster_net_client_customize_local_user_script_filepath: '/usr/local/bin/sync_localuser'

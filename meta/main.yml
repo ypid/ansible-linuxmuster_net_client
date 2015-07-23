@@ -48,4 +48,4 @@ ansigenome_info:
 
         Reasons: To learn how networks work. Students don’t have the permissions to actually sniff the network of course but there are [many dumps](https://wiki.wireshark.org/SampleCaptures) which can be analyzed.
 
-    The compressed image size is currently 7.2 GiB which is tiny compared to a Windows 7 image (with basically useful nothing in it).
+    The compressed image size is currently 7.2 GiB which is tiny compared to a Windows 7 image (with basically nothing useful in it).
