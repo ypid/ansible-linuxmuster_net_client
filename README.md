@@ -9,7 +9,7 @@ Apply common customizations to a linuxmuster.net client.
 See [linuxmuster.net](https://linuxmuster.net) for more information.
 
 ### Package list
-The [package list](/vars/ypid_packages.yml) which is included in this role has been selected for a [Gymnasium](https://en.wikipedia.org/wiki/Gymnasium_%28school%29).
+The [package list](https://github.com/ypid/ansible-linuxmuster_net-client-customize/blob/master/vars/ypid_packages.yml) which is included in this role has been selected for a [Gymnasium](https://en.wikipedia.org/wiki/Gymnasium_%28school%29).
 It includes many programs like:
 
 * Office: [LibreOffice](https://www.libreoffice.org/), [TeXLive](https://www.tug.org/texlive/)
@@ -45,7 +45,7 @@ This role requires at least Ansible `v1.3`. To install it, run:
 To install via git, run either:
 
     git clone https://github.com/ypid/ansible-linuxmuster_net-client-customize.git ypid.linuxmuster_net-client-customize
-    git submodule add https://github.com/ypid/ansible-linuxmuster_net-client-customize.git roles/ypid.linuxmuster_net-client-customize
+    git submodule add https://github.com/ypid/ansible-linuxmuster_net-client-customize.git ypid.linuxmuster_net-client-customize
 
 
 

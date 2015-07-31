@@ -23,7 +23,7 @@ ansigenome_info:
     See [linuxmuster.net](https://linuxmuster.net) for more information.
 
     ### Package list
-    The [package list](/vars/ypid_packages.yml) which is included in this role has been selected for a [Gymnasium](https://en.wikipedia.org/wiki/Gymnasium_%28school%29).
+    The [package list](https://github.com/ypid/ansible-linuxmuster_net-client-customize/blob/master/vars/ypid_packages.yml) which is included in this role has been selected for a [Gymnasium](https://en.wikipedia.org/wiki/Gymnasium_%28school%29).
     It includes many programs like:
 
     * Office: [LibreOffice](https://www.libreoffice.org/), [TeXLive](https://www.tug.org/texlive/)
