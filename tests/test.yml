@@ -3,7 +3,7 @@
 - hosts: localhost
   remote_user: root
   vars:
-    linuxmuster_net_client_apt_packages:
+    linuxmuster_net_client__apt_packages:
       - "vim"
 
   roles:

@@ -2,16 +2,16 @@
 ## {{ ansible_managed }}
 
 . /etc/linuxmuster-client/profile/profile.conf || exit 1
-USER='{{ linuxmuster_net_client_customize_local_user_name }}'
+USER='{{ linuxmuster_net_client__local_user_name }}'
 HOMEDIR="/home/$USER"
 
 rm "$HOMEDIR/" -rf
 rsync --recursive $RSYNC_OPTIONS "/home/$PROFILE_USER/" "$HOMEDIR/"
 
-{% if linuxmuster_net_client_customize_local_user_directories is defined and linuxmuster_net_client_customize_local_user_directories is iterable %}
-{% for dir in linuxmuster_net_client_customize_local_user_directories %}
+{% if linuxmuster_net_client__local_user_directories is defined and linuxmuster_net_client__local_user_directories is iterable %}
+{%   for dir in linuxmuster_net_client__local_user_directories %}
 mkdir -p "$HOMEDIR/{{ dir }}"
-{% endfor %}
+{%   endfor %}
 {% endif %}
 
 ## Changed positions for normal users.

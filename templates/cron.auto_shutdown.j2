@@ -1,6 +1,6 @@
 ## {{ ansible_managed }}
 
 # m h    dom mon dow   user    command
-{% for element in linuxmuster_net_client_customize_auto_shutdown_time %}
-{% if not linuxmuster_net_client_customize_auto_shutdown_enable %}# {% endif %}{{ element.minute | default("00") }} {{ element.hour }}    * * *         root    env DISPLAY=:0 /usr/bin/check-shutdown
+{% for element in linuxmuster_net_client__auto_shutdown_time %}
+{% if not linuxmuster_net_client__auto_shutdown_enabled %}# {% endif %}{{ element.minute | d("00") | string }} {{ element.hour | string }}    * * *         root    env DISPLAY=:0 /usr/bin/check-shutdown
 {% endfor %}

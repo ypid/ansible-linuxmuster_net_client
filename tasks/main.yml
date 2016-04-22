@@ -1,86 +1,146 @@
 ---
 
+## Client software packages (((
+
+- name: Load package list presets provided by this role
+  include_vars: '{{ item }}.yml'
+  with_flattened:
+    - 'packages_preset_ypid'
+    - 'packages_preset_ypid_absent'
+  tags: [ 'role::linuxmuster_net_client:software' ]
+
+- name: Install client software packages
+  apt:
+    name: '{{ item }}'
+    state: 'latest'
+  when: item|d()
+  with_flattened:
+    - '{{ linuxmuster_net_client__packages_preset | list }}'
+    - '{{ linuxmuster_net_client__packages        | list }}'
+    - '{{ linuxmuster_net_client__group_packages  | list }}'
+  tags: [ 'role::linuxmuster_net_client:software' ]
+
+- name: Remove client software packages
+  apt:
+    name: '{{ item }}'
+    state: 'absent'
+  when: item|d()
+  with_flattened:
+    - '{{ linuxmuster_net_client__packages_preset_absent | list }}'
+    - '{{ linuxmuster_net_client__packages_absent        | list }}'
+    - '{{ linuxmuster_net_client__group_packages_absent  | list }}'
+  tags: [ 'role::linuxmuster_net_client:software' ]
+
+## )))
+
+## Manage local user for offline usage (((
+
+- name: Install the sync_localuser script
+  template:
+    dest:  '{{ item.dest }}'
+    src:   '{{ item.src   | d(item.dest) }}.j2'
+    mode:  '{{ item.mode  | d("0744") }}'
+    owner: '{{ item.owner | d("root") }}'
+    group: '{{ item.group | d("root") }}'
+    validate: '{{ item.validate | d(omit) }}'
+  when: (item.when|d(True) | bool != False)
+  with_items:
+    - file: '{{ linuxmuster_net_client__local_user_script_filepath }}'
+      src: '/usr/local/bin/sync_localuser'
+      when: '{{ linuxmuster_net_client__local_user_enabled | bool }}'
+
+- name: Schedule the sync_localuser script for execution during reboots
+  lineinfile:
+    dest: '/etc/rc.local'
+    regexp: '^{{ linuxmuster_net_client__local_user_script_filepath }}'
+    line: '{{ linuxmuster_net_client__local_user_script_filepath }} 1> /var/log/sync_localuser.log'
+    insertbefore: '^exit 0'
+  when: (linuxmuster_net_client__local_user_enabled | bool)
+
+- name: Disable the sync_localuser script during reboots
+  lineinfile:
+    dest: '/etc/rc.local'
+    line: '{{ linuxmuster_net_client__local_user_script_filepath }}'
+    state: 'absent'
+  when: not (linuxmuster_net_client__local_user_enabled | bool)
+
+## )))
+
+## Linuxmuster.net client configuration (((
+
 - name: Copy custom configuration files to the client
   synchronize:
-    src: "./etc/"
-    dest: "/etc"
-    recursive: yes
-    links: yes
+    src: './etc/'
+    dest: '/etc'
+    recursive: True
+    links: True
     # set_remote_user: no
-  when: linuxmuster_net_client_customize_copy_custom_config_etc
+  when: (linuxmuster_net_client__copy_custom_config_etc | bool)
 
 - name: Copy custom configuration files to the client and delete all other files
   synchronize:
-    src: ".{{ item }}/"
-    dest: "{{ item }}"
-    recursive: yes
-    links: yes
-    delete: yes
+    src: '.{{ item }}/'
+    dest: '{{ item }}'
+    recursive: True
+    links: True
+    delete: True
     set_remote_user: no
-  when: item is defined and item
+  when: item|d()
   with_flattened:
-    - linuxmuster_net_client_customize_etc_delete_sync
+    - '{{ linuxmuster_net_client__etc_delete_sync }}'
 
-## Remove when https://github.com/linuxmuster/linuxmuster-client-extras/pull/3 is merged.
-## Don‘t. I adopted the script.
+## )))
+
+## Client auto shutdown (((
+
+## FIXME: Remove when https://github.com/linuxmuster/linuxmuster-client-extras/pull/3 is being rolled out to the clients.
 - name: Make sure the fixed shutdown script is available
   copy:
-    src: "check-shutdown"
-    dest: "/usr/bin/check-shutdown"
-    mode: "0755"
-    owner: root
-    group: root
+    src: 'usr/bin/check-shutdown'
+    dest: '/usr/bin/check-shutdown'
+    mode: '0755'
+    owner: 'root'
+    group: 'root'
 
+  ## To keep it simple, the `cron` Ansible module is not being used to allow to
+  ## change already configured cron jobs without the need to disable all
+  ## previously set cron jobs.
 - name: Create auto shutdown cron job
   template:
-    src: "cron.auto_shutdown.j2"
-    dest: "/etc/cron.d/auto-shutdown"
-    mode: "0644"
-    owner: root
-    group: root
+    src: 'cron.auto_shutdown.j2'
+    dest: '/etc/cron.d/auto-shutdown'
+    mode: '0644'
+    owner: 'root'
+    group: 'root'
 
-- name: Create local scripts script
+## )))
+
+## Additional scripts (((
+
+- name: Install role provided scripts
   template:
-    src: "{{ item.file }}.j2"
-    dest: "/usr/local/bin/{{ item.file }}"
-    mode: "{{ item.mode | default('0744') }}"
-    ## Makes no sense to run as normal user.
-    validate: '{{ item.validate | default(omit) }}'
-    owner: root
-    group: root
-  when: ((item.when is defined and item.when != 'False') or item.when is not defined)
+    dest:  '{{ item.dest }}'
+    src:   '{{ item.src   | d(item.dest) }}.j2'
+    mode:  '{{ item.mode  | d("0744") }}'
+    owner: '{{ item.owner | d("root") }}'
+    group: '{{ item.group | d("root") }}'
+    validate: '{{ item.validate | d(omit) }}'
+  when: (
+          (item.when|d(True) | bool == True) and
+          (item.state|d(linuxmuster_net_client__additional_scripts_state) == 'present')
+        )
   with_items:
-    - file: "sync_localuser"
-      when: "{{ linuxmuster_net_client_customize_local_user_enable }}"
-    - file: "make_clean_for_image"
+    - dest: 'usr/local/bin/make_clean_for_image'
 
-- name: Enable sync_localuser script
-  lineinfile:
-    dest: '/etc/rc.local'
-    regexp: "^{{ linuxmuster_net_client_customize_local_user_script_filepath }}"
-    line: "{{ linuxmuster_net_client_customize_local_user_script_filepath }} 1> /var/log/sync_localuser.log"
-    insertbefore: '^exit 0'
-  when: linuxmuster_net_client_customize_local_user_enable
+- name: Remove role provided scripts
+  template:
+    dest:  '{{ item.dest }}'
+    state: 'absent'
+  when: (
+          (item.when|d(True) | bool == False) and
+          (item.state|d(linuxmuster_net_client__additional_scripts_state) != 'present')
+        )
+  with_items:
+    - dest: 'usr/local/bin/make_clean_for_image'
 
-- name: Disable sync_localuser script
-  lineinfile:
-    dest: '/etc/rc.local'
-    line: "{{ linuxmuster_net_client_customize_local_user_script_filepath }}"
-    state: absent
-  when: not linuxmuster_net_client_customize_local_user_enable
-
-- name: Include OS specific variables
-  include_vars: "ypid_packages.yml"
-  when: linuxmuster_net_client_apt_packages is not iterable
-
-## Did not work on Ubuntu?
-- name: Install all packages
-  apt:
-    name: "{{ item }}"
-    state: 'latest'
-  when: item is defined and item
-  with_flattened:
-    - linuxmuster_net_client_apt_packages
-    - linuxmuster_net_client_apt_packages_group
-    - linuxmuster_net_client_apt_packages_host
-  tags: package_install
+## )))

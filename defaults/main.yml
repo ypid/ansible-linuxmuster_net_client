@@ -1,40 +1,199 @@
 ---
+# Default variables
+# =================
 
-linuxmuster_net_client_customize_template_user: "linuxadmin"
+# .. contents:: Sections
+#    :local:
+#
+# .. Client software packages (((
+#
+# ----------------------------
+#   Client software packages
+# ----------------------------
 
-## Work in progress: (((
-## ToDo: Test on fresh system. Create user.
-# passwd localuser -d
-## Local user name. Can also login, when the client is offline (no connection to the server).
-linuxmuster_net_client_customize_local_user_name: "localuser"
-linuxmuster_net_client_customize_local_user_enable: False
-linuxmuster_net_client_customize_local_user_script_filepath: '/usr/local/bin/sync_localuser'
-
-## Create the following directories for the local_user.
-linuxmuster_net_client_customize_local_user_directories:
-  - "Dokumente_tmp"
-## )))
-
-linuxmuster_net_client_customize_copy_custom_config_etc: True
-
-linuxmuster_net_client_customize_auto_shutdown_enable: True
-linuxmuster_net_client_customize_auto_shutdown_time:
-  - hour: "17"
-    minute: "15"
-  - hour: "20"
-  - hour: "00"
-
-## Add paths here which should be synchronized to the target deleting all files not available on the source.
-linuxmuster_net_client_customize_etc_delete_sync:
-  # - "/etc/linuxmuster-client/pre-mount.d"
-  # - "/etc/linuxmuster-client/post-mount.d"
+# .. envvar:: linuxmuster_net_client__packages_preset
+#
+# List of preset "global" packages provided by this role to install.
+# If you want to start of with an empty preset, you can set::
+#
+#    linuxmuster_net_client__packages_preset: []
+#
+# in your inventory.
+linuxmuster_net_client__packages_preset: |
+  {{
+    (linuxmuster_net_client__packages_preset_ypid|d([]) | list) +
+    []
+  }}
 
 
-## If the following variable lists no packages, the default packages from vars/ypid_packages.yml
-## will be installed.
-linuxmuster_net_client_apt_packages:
-  # - "vim"
+# .. envvar:: linuxmuster_net_client__packages
+#
+# List of additional "global" packages to install.
+linuxmuster_net_client__packages: []
 
-## Additional packages, configured in group and host scope.
-linuxmuster_net_client_apt_packages_group:
-linuxmuster_net_client_apt_packages_host:
+
+# .. envvar:: linuxmuster_net_client__group_packages
+#
+# List of packages for a group of hosts (only one group supported).
+linuxmuster_net_client__group_packages: []
+
+
+# .. envvar:: linuxmuster_net_client__packages_preset_absent
+#
+# List of preset "global" packages provided by this role to ensure that they
+# are absent/removed.
+# If you want to start of with an empty preset, you can set::
+#
+#    linuxmuster_net_client__packages_preset_absent: []
+#
+# in your inventory.
+linuxmuster_net_client__packages_preset_absent: |
+  {{
+    (linuxmuster_net_client__packages_preset_ypid_absent|d([]) | list) +
+    []
+  }}
+
+
+# .. envvar:: linuxmuster_net_client__packages_absent
+#
+# List of additional "global" packages to remove.
+linuxmuster_net_client__packages_absent: []
+
+
+# .. envvar:: linuxmuster_net_client__group_packages_absent
+#
+# List of packages for a group of hosts (only one group supported) remove.
+linuxmuster_net_client__group_packages_absent: []
+
+# .. )))
+
+# .. Linuxmuster.net user settings (((
+#
+# ---------------------------------
+#   Linuxmuster.net user settings
+# ---------------------------------
+
+# .. envvar:: linuxmuster_net_client__template_user
+#
+linuxmuster_net_client__template_user: 'linuxadmin'
+
+# .. )))
+
+# .. Manage local user for offline usage (((
+#
+# ---------------------------------------
+#   Manage local user for offline usage
+# ---------------------------------------
+#
+# Work in progress:
+# TODO: Test on fresh system. Create user.
+
+# .. envvar:: linuxmuster_net_client__local_user_enabled
+#
+# Should a local user for students and teachers be created on the clients?
+# This user can be used if the client has been booted without network where
+# normal login does not work.
+linuxmuster_net_client__local_user_enabled: False
+
+
+# .. envvar:: linuxmuster_net_client__local_user_name
+#
+# Unix user name to configure.
+linuxmuster_net_client__local_user_name: 'localuser'
+
+
+# .. envvar:: linuxmuster_net_client__local_user_script_filepath
+#
+# File path of the sync_localuser script which resets the settings of the local
+# user with those of the template user.
+# If management of the local user is enabled by
+# ``linuxmuster_net_client__local_user_enabled``, this script will be invoked
+# on each reboot.
+linuxmuster_net_client__local_user_script_filepath: '/usr/local/bin/sync_localuser'
+
+
+# .. envvar:: linuxmuster_net_client__local_user_directories
+#
+# List of directories to create in the home directory of the local user.
+linuxmuster_net_client__local_user_directories:
+  - 'Dokumente_tmp'
+
+# Testing: Don’t allow any internet access for local user:
+# iptables -A OUTPUT -m owner --uid-owner localuser -j REJECT
+# ## iptables -A INPUT -m owner --uid-owner localuser -j DROP
+
+# )))
+
+# .. Linuxmuster.net client configuration (((
+#
+# ----------------------------------------
+#   Linuxmuster.net client configuration
+# ----------------------------------------
+#
+# FIXME: More documentation/rework of this section needed.
+
+# .. envvar:: linuxmuster_net_client__copy_custom_config_etc
+#
+# Configure the client by copying role provided configuration files to
+# :file:`/etc`.
+linuxmuster_net_client__copy_custom_config_etc: False
+
+
+# .. envvar:: linuxmuster_net_client__etc_delete_sync
+#
+# FIXME: Is this needed?
+# Directory paths on the client which should by configured by configuration provided by this role.
+#
+# .. warning:: Note that this overwrite or delete all files below the given directory paths.
+#
+# To enable this for certain directory paths, take a look at this example::
+#
+#    linuxmuster_net_client__etc_delete_sync:
+#      - '/etc/linuxmuster-client/pre-mount.d'
+#      - '/etc/linuxmuster-client/post-mount.d'
+#
+# By default, this option is disabled.
+linuxmuster_net_client__etc_delete_sync: []
+
+# .. )))
+
+# .. Client auto shutdown (((
+#
+# ------------------------
+#   Client auto shutdown
+# ------------------------
+#
+# Allows to shutdown clients at a specific time when no user is logged in.
+# Logged in users are given the choice if they want are ok with the scheduled
+# shutdown or if they want to configure to work. If no answer is given, the
+# client is going to shutdown after 2 minutes.
+
+# .. envvar:: linuxmuster_net_client__auto_shutdown_enabled
+#
+# Should client auto shutdown be enabled to the times configured by
+# ``linuxmuster_net_client__auto_shutdown_time``?
+linuxmuster_net_client__auto_shutdown_enabled: True
+
+
+# .. envvar:: linuxmuster_net_client__auto_shutdown_time
+#
+# Cron entries to perform the auto shutdown.
+linuxmuster_net_client__auto_shutdown_time:
+  - { hour: '17', minute: '15'}
+  - { hour: '20' }
+  - { hour: '00' }
+
+# )))
+
+# .. Additional scripts (((
+#
+# ----------------------
+#   Additional scripts
+# ----------------------
+
+# .. envvar:: linuxmuster_net_client__additional_scripts_state
+#
+# Default state for additional scripts provided by this role.
+linuxmuster_net_client__additional_scripts_state: 'present'
+
+# )))

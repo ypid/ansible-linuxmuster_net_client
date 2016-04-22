@@ -1,0 +1,10 @@
+#!/bin/bash
+## {{ ansible_managed }}
+## https://www.linuxmuster.net/wiki/anwenderwiki:linuxclient:merkzettel_linuxclient#vor_der_imageerstellung
+
+{% if linuxmuster_net_client__local_user_enabled | bool %}
+rm --recursive --force '/home/{{ linuxmuster_net_client__local_user_name }}'
+{% endif %}
+
+apt-get clean
+rm --recursive --force /home/teachers/* /home/students/*

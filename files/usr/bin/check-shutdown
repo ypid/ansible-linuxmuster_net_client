@@ -1,6 +1,7 @@
 #!/bin/bash
 ## Script created by Rainer Rössler (roesslerrr-at-web.de)
 ## Modified by Robin Schneider <ypid@riseup.net>
+## This script can be automatically set up by the Ansible role ypid.linuxmuster_net-client-customize: https://galaxy.ansible.com/list#/roles/4058
 ## License: Free Software (License GPLv3)
 
 export LANG="de_DE.utf8"
