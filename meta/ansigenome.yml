@@ -14,7 +14,7 @@ ansigenome_info:
     See [linuxmuster.net](https://linuxmuster.net) for more information.
 
     ### Package list
-    The [package list](https://github.com/ypid/ansible-linuxmuster_net_client/blob/master/vars/packages_preset_ypid.yml) which is included in this role has been selected for a [Gymnasium](https://en.wikipedia.org/wiki/Gymnasium_%28school%29).
+    The [package list][packages_preset_ypid] which is included in this role has been selected for a [Gymnasium][Gymnasium].
     It includes many programs like:
 
     * Office: [LibreOffice](https://www.libreoffice.org/), [TeXLive](https://www.tug.org/texlive/)
@@ -41,3 +41,11 @@ ansigenome_info:
 
     The compressed image size is currently 9.6 GiB which is tiny compared to a
     Windows 7 image (with basically nothing useful in it).
+
+    The package list was generated for Linux Mint 17 LTS Qiana (based on Ubuntu 14.04 LTS).
+    If you use a different distribution or release, checkout the Ansible role [ypid.packages][] which can help you to generate a matching package list.
+    Once I have tested a different release, I will include the matching package lists to make them easier accessible.
+
+    [packages_preset_ypid]: https://github.com/ypid/ansible-linuxmuster_net_client/blob/master/vars/packages_preset_ypid.yml
+    [Gymnasium]: https://en.wikipedia.org/wiki/Gymnasium_%28school%29
+    [ypid.packages]: https://github.com/ypid/ansible-packages
