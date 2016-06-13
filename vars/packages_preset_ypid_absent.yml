@@ -12,8 +12,27 @@
 ## https://github.com/ypid/ansible-packages/blob/master/scripts/gen_install_list_from_yaml.
 ##
 linuxmuster_net_client__packages_preset_ypid_absent:
+  - ack-grep
+  - browser-plugin-freshplayer-pepperflash
+  - ddrescue
+  - ding
+  - flashplugin-nonfree
+  - gitso
+  - gmrun
+  - gnome-do
+  - gnucash
+  - gnucash-docs
+  - kupfer
+  - lat
+  - launchy
   - mcelog
+  - memtest86
+  - minitube
+  - msmtp
+  - myrescue
   - network-manager-iodine
   - network-manager-openvpn
-  - network-manager-ssh
   - network-manager-vpnc
+  - pidgin-openpgp
+  - python-gnucash
+  - smtube

@@ -23,6 +23,7 @@ linuxmuster_net_client__packages_preset_ypid:
   - apache2
   - apbs
   - apparmor-docs
+  - apt-rdepends
   - apt-transport-https
   - aptitude
   - aqbanking-tools
@@ -47,6 +48,7 @@ linuxmuster_net_client__packages_preset_ypid:
   - b43-fwcutter
   - bambam
   - baobab
+  - battery-stats
   - biber
   - bleachbit
   - blender
@@ -59,7 +61,6 @@ linuxmuster_net_client__packages_preset_ypid:
   - byobu
   - bzip2
   - bzr
-  - cabal-install
   - cabextract
   - calibre
   - cantor
@@ -78,7 +79,6 @@ linuxmuster_net_client__packages_preset_ypid:
   - chromium-browser
   - chromium-browser-inspector
   - chromium-browser-l10n
-  - cifs-utils
   - clementine
   - clonezilla
   - cmake
@@ -89,13 +89,17 @@ linuxmuster_net_client__packages_preset_ypid:
   - converseen
   - convertall
   - cowsay
+  - cpu-checker
+  - cpuid
   - crudini
   - cryptsetup
   - csstidy
   - csvtool
+  - cups
+  - cups-pdf
   - curl
   - cutecom
-  - cython3
+  - dateutils
   - dcfldd
   - debconf-doc
   - debconf-utils
@@ -111,7 +115,6 @@ linuxmuster_net_client__packages_preset_ypid:
   - dict-jargon
   - dict-vera
   - dictd
-  - ding
   - dnsutils
   - docx2txt
   - dos2unix
@@ -158,7 +161,6 @@ linuxmuster_net_client__packages_preset_ypid:
   - fritzing
   - frogr
   - fslint
-  - fuse
   - fwbuilder
   - gamine
   - gaupol
@@ -173,12 +175,12 @@ linuxmuster_net_client__packages_preset_ypid:
   - gedit
   - geekcode
   - gelemental
+  - genisoimage
   - geogebra
   - geogebra-gnome
   - geoip-bin
   - geoip-database-contrib
   - gespeaker
-  - ghc
   - gimp
   - gip
   - gir1.2-spice-client-gtk-3.0
@@ -195,15 +197,14 @@ linuxmuster_net_client__packages_preset_ypid:
   - github-backup
   - gitk
   - gitstats
-  - gnome-dictionary
   - gnome-disk-utility
   - gnome-mplayer
+  - gnome-packagekit
   - gnome-schedule
   - gnome-tweak-tool
   - gnucap
   - gnuhtml2latex
   - gnupg-curl
-  - goaccess
   - goldendict
   - goobox
   - google-earth-stable
@@ -230,11 +231,15 @@ linuxmuster_net_client__packages_preset_ypid:
   - gzip
   - handbrake
   - hardinfo
+  - haskell-devscripts
+  - haskell-platform
   - haxe
+  - hdapsd
   - hdparm
   - heimdall-flash
   - heimdall-flash-frontend
   - hexchat
+  - hplip
   - htop
   - hunspell-de-de
   - hyphen-de
@@ -249,6 +254,7 @@ linuxmuster_net_client__packages_preset_ypid:
   - imvirt
   - indent
   - ingerman
+  - inkscape
   - inotify-tools
   - intel-microcode
   - invesalius
@@ -301,14 +307,12 @@ linuxmuster_net_client__packages_preset_ypid:
   - latex2rtf
   - ldap-utils
   - less
-  - libacl1-dev
   - libapache2-mod-python
   - libapache2-mod-python-doc
   - libaqbanking-doc
   - libavcodec-extra
   - libboolean-perl
   - libboost-all-dev
-  - libbz2-dev
   - libcap2-bin
   - libconfig-simple-perl
   - libconst-fast-perl
@@ -321,7 +325,9 @@ linuxmuster_net_client__packages_preset_ypid:
   - libemail-mime-perl
   - libevent-dev
   - libfile-next-perl
-  - libfuse-dev
+  - libghc-json-dev
+  - libghc-regex-tdfa-dev
+  - libghc-transformers-base-dev
   - libgl1-mesa-dev
   - libgl1-mesa-glx
   - libglew-dev
@@ -339,9 +345,6 @@ linuxmuster_net_client__packages_preset_ypid:
   - liblog-any-perl
   - liblog-message-perl
   - liblog-message-simple-perl
-  - liblz4-dev
-  - liblzma-dev
-  - libncurses5-dev
   - libnet-dns-perl
   - libnet-ip-perl
   - libnet-jabber-perl
@@ -353,7 +356,6 @@ linuxmuster_net_client__packages_preset_ypid:
   - libopencv-dev
   - libperl-critic-perl
   - libpod-markdown-perl
-  - libreadline-dev
   - librecad
   - libreoffice
   - libreoffice-calc
@@ -389,6 +391,7 @@ linuxmuster_net_client__packages_preset_ypid:
   - libwww-perl
   - libx11-dev
   - libxml2-utils
+  - libxss-dev
   - liferea
   - lightspeed
   - lintian
@@ -422,6 +425,7 @@ linuxmuster_net_client__packages_preset_ypid:
   - mesa-utils
   - mesa-utils-extra
   - minicom
+  - mkvtoolnix-gui
   - monkeysign
   - mosh
   - mtr-tiny
@@ -459,6 +463,7 @@ linuxmuster_net_client__packages_preset_ypid:
   - opus-tools
   - oregano
   - owncloud-client
+  - owncloud-client-l10n
   - p7zip-full
   - p7zip-rar
   - packagesearch
@@ -490,24 +495,28 @@ linuxmuster_net_client__packages_preset_ypid:
   - pidgin-otr
   - pidgin-plugin-pack
   - pitivi
-  - pkg-config
   - planets
   - postgresql-client
   - powertop
+  - printer-driver-hpcups
   - procinfo
   - psmisc
   - pwgen
+  - pyhoca-cli
+  - pyhoca-gui
   - pymol
   - pyrenamer
   - pysiogame
   - pysycache
   - python-aiml
   - python-all-dev
+  - python-autopep8
   - python-bibtex
   - python-bs4
   - python-bs4-doc
   - python-cjson
   - python-configparser
+  - python-coverage
   - python-dateutil
   - python-django
   - python-dulwich
@@ -518,6 +527,8 @@ linuxmuster_net_client__packages_preset_ypid:
   - python-git
   - python-gitdb
   - python-imaging
+  - python-keyring
+  - python-lockfile
   - python-lxml
   - python-memcache
   - python-mysqldb
@@ -527,22 +538,29 @@ linuxmuster_net_client__packages_preset_ypid:
   - python-pmw
   - python-prettytable
   - python-pycalendar
+  - python-pycryptopp
   - python-redis
   - python-setuptools
   - python-sklearn
   - python-sphinx
   - python-spice-client-gtk
+  - python-sqlalchemy
   - python-sqlite
   - python-termcolor
   - python-tk
   - python-tox
   - python-twill
+  - python-twisted-web
   - python-unidecode
   - python-unittest2
   - python-virtualenv
   - python-vte
+  - python-xlib
+  - python-zc.lockfile
+  - python-zmq
   - python3-all
   - python3-bs4
+  - python3-coverage
   - python3-dateutil
   - python3-dev
   - python3-doc
@@ -550,6 +568,7 @@ linuxmuster_net_client__packages_preset_ypid:
   - python3-flexmock
   - python3-gnupg
   - python3-jinja2
+  - python3-keyring
   - python3-llfuse
   - python3-lxml
   - python3-markdown
@@ -564,9 +583,11 @@ linuxmuster_net_client__packages_preset_ypid:
   - python3-setuptools
   - python3-setuptools-git
   - python3-sphinx
+  - python3-sqlalchemy
   - python3-tk
   - python3-unidecode
   - python3-yaml
+  - python3-zmq
   - qalculate-gtk
   - qemu
   - qemu-kvm
@@ -595,6 +616,7 @@ linuxmuster_net_client__packages_preset_ypid:
   - remmina-plugin-vnc
   - remmina-plugin-xdmcp
   - rhash
+  - rpl
   - rst2pdf
   - rsync
   - rsyslog-doc
@@ -618,8 +640,8 @@ linuxmuster_net_client__packages_preset_ypid:
   - sipcalc
   - sm
   - smartmontools
-  - smbclient
   - smplayer
+  - software-center
   - sound-juicer
   - soundconverter
   - speedcrunch
@@ -637,6 +659,7 @@ linuxmuster_net_client__packages_preset_ypid:
   - sup-mail
   - superiotool
   - swaks
+  - synaptic
   - sysfsutils
   - sysinfo
   - sysstat
@@ -663,10 +686,10 @@ linuxmuster_net_client__packages_preset_ypid:
   - ubuntu-edu-tertiary
   - ubuntu-restricted-extras
   - uget
-  - unison
   - unison-gtk
   - uniutils
   - universalindentgui
+  - unoconv
   - unp
   - unrar
   - unzip
@@ -682,14 +705,18 @@ linuxmuster_net_client__packages_preset_ypid:
   - vim-gnome
   - vim-latexsuite
   - vim-nox
+  - vinagre
   - virt-manager
   - virt-what
+  - virtualbox
+  - virtualbox-dkms
+  - virtualbox-guest-additions-iso
+  - virtualbox-qt
   - vlc
   - vrms
   - wajig
   - webhttrack
   - wget
-  - wine
   - winff
   - wipe
   - wireshark
@@ -713,5 +740,4 @@ linuxmuster_net_client__packages_preset_ypid:
   - xzdec
   - yacas
   - zip
-  - zlib1g-dev
   - zsh
