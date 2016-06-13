@@ -18,7 +18,6 @@ linuxmuster_net_client__packages_preset_ypid:
   - amd64-microcode
   - android-tools-adb
   - androidsdk-ddms
-  - animals
   - ansible-doc
   - apache2
   - apbs
@@ -35,7 +34,6 @@ linuxmuster_net_client__packages_preset_ypid:
   - aspell-de-alt
   - astyle
   - asunder
-  - atomix
   - attr
   - audacious
   - audacity
@@ -46,7 +44,6 @@ linuxmuster_net_client__packages_preset_ypid:
   - autotools-dev
   - avogadro
   - b43-fwcutter
-  - bambam
   - baobab
   - battery-stats
   - biber
@@ -72,10 +69,8 @@ linuxmuster_net_client__packages_preset_ypid:
   - celestia
   - celestia-gnome
   - checkinstall
-  - cheese
   - chemical-mime-data
   - chemtool
-  - childsplay
   - chromium-browser
   - chromium-browser-inspector
   - chromium-browser-l10n
@@ -162,11 +157,8 @@ linuxmuster_net_client__packages_preset_ypid:
   - frogr
   - fslint
   - fwbuilder
-  - gamine
   - gaupol
-  - gbrainy
   - gchempaint
-  - gcompris
   - gcrystal
   - gcstar
   - gcu-bin
@@ -299,7 +291,6 @@ linuxmuster_net_client__packages_preset_ypid:
   - kpartx
   - kstars
   - ktouch
-  - ktuberling
   - kturtle
   - laby
   - lame
@@ -453,7 +444,6 @@ linuxmuster_net_client__packages_preset_ypid:
   - nodejs
   - nodejs-legacy
   - npm
-  - numptyphysics
   - nwipe
   - oneko
   - openbabel
@@ -506,8 +496,6 @@ linuxmuster_net_client__packages_preset_ypid:
   - pyhoca-gui
   - pymol
   - pyrenamer
-  - pysiogame
-  - pysycache
   - python-aiml
   - python-all-dev
   - python-autopep8
@@ -679,8 +667,6 @@ linuxmuster_net_client__packages_preset_ypid:
   - tree
   - tshark
   - ttyrec
-  - tuxmath
-  - tuxtype
   - typespeed
   - ubuntu-edu-secondary
   - ubuntu-edu-tertiary
@@ -727,12 +713,10 @@ linuxmuster_net_client__packages_preset_ypid:
   - wxhexeditor
   - wxmaxima
   - x2goclient
-  - xball
   - xcircuit
   - xclip
   - xdelta3
   - xemacs21
-  - xmakemol-gl
   - xoscope
   - xournal
   - xutils

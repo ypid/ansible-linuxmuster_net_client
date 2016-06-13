@@ -13,15 +13,24 @@
 ##
 linuxmuster_net_client__packages_preset_ypid_absent:
   - ack-grep
+  - animals
+  - atomix
+  - bambam
   - browser-plugin-freshplayer-pepperflash
+  - cheese
+  - childsplay
   - ddrescue
   - ding
   - flashplugin-nonfree
+  - gamine
+  - gbrainy
+  - gcompris
   - gitso
   - gmrun
   - gnome-do
   - gnucash
   - gnucash-docs
+  - ktuberling
   - kupfer
   - lat
   - launchy
@@ -33,6 +42,13 @@ linuxmuster_net_client__packages_preset_ypid_absent:
   - network-manager-iodine
   - network-manager-openvpn
   - network-manager-vpnc
+  - numptyphysics
   - pidgin-openpgp
+  - pysiogame
+  - pysycache
   - python-gnucash
   - smtube
+  - tuxmath
+  - tuxtype
+  - xball
+  - xmakemol-gl
