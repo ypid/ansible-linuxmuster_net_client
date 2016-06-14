@@ -74,6 +74,8 @@ linuxmuster_net_client__packages_preset_ypid:
   - chromium-browser
   - chromium-browser-inspector
   - chromium-browser-l10n
+  - cinnamon
+  - cinnamon-translations
   - clementine
   - clonezilla
   - cmake
@@ -518,6 +520,7 @@ linuxmuster_net_client__packages_preset_ypid:
   - python-keyring
   - python-lockfile
   - python-lxml
+  - python-matplotlib
   - python-memcache
   - python-mysqldb
   - python-paramiko
@@ -651,6 +654,7 @@ linuxmuster_net_client__packages_preset_ypid:
   - sysfsutils
   - sysinfo
   - sysstat
+  - system-config-printer-common
   - systemsettings
   - sysvbanner
   - tar
@@ -712,6 +716,7 @@ linuxmuster_net_client__packages_preset_ypid:
   - writer2latex
   - wxhexeditor
   - wxmaxima
+  - x11-common
   - x2goclient
   - xcircuit
   - xclip
