@@ -1,14 +1,23 @@
 ---
 
 ansigenome_info:
+  galaxy_url: 'https://galaxy.ansible.com/ypid/linuxmuster_net_client'
   github_url: 'https://github.com/ypid/ansible-linuxmuster_net_client'
   git_branch: 'master'
-  galaxy_id: '4058'
 
   status:
     name: 'beta'
 
-  travis: False
+  travis: True
+
+  license_url: 'https://tldrlegal.com/license/gnu-affero-general-public-license-v3-%28agpl-3.0%29'
+
+  authors:
+
+    - name:  'Robin Schneider'
+      url: 'https://me.ypid.de/'
+      email: 'ypid@riseup.net'
+      github: 'ypid'
 
   synopsis: |
     See [linuxmuster.net](https://linuxmuster.net) for more information.
