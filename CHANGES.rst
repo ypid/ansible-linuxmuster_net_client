@@ -25,3 +25,8 @@ Changed
 - Rename Ansible role tag ``role::linuxmuster_net_client:software`` to
   ``role::linuxmuster_net_client:pkgs`` for consistency reasons with DebOps_.
   [ypid_]
+
+Fixed
+~~~~~
+
+- Installation of the ``make_clean_for_image`` script. [ypid_]

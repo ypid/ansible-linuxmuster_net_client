@@ -119,7 +119,7 @@
 
 - name: Install role provided scripts
   template:
-    dest:  '{{ item.dest }}'
+    dest:  '/{{ item.dest }}'
     src:   '{{ item.src   | d(item.dest) }}.j2'
     mode:  '{{ item.mode  | d("0744") }}'
     owner: '{{ item.owner | d("root") }}'
