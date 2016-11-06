@@ -1,19 +1,19 @@
 ---
-# Default variables
-# =================
+# .. vim: foldmarker=[[[,]]]:foldmethod=marker
+
+# ypid.linuxmuster_net_client default variables [[[
+# =================================================
 
 # .. contents:: Sections
 #    :local:
 #
 # .. include:: includes/all.rst
 
-# .. Client software packages (((
-#
-# ----------------------------
-#   Client software packages
+
+# Client software packages [[[
 # ----------------------------
 
-# .. envvar:: linuxmuster_net_client__packages_preset
+# .. envvar:: linuxmuster_net_client__packages_preset [[[
 #
 # List of preset "global" packages provided by this role to install.
 # If you want to start of with an empty preset, you can set::
@@ -27,20 +27,20 @@ linuxmuster_net_client__packages_preset: |
     []
   }}
 
-
-# .. envvar:: linuxmuster_net_client__packages
+                                                                   # ]]]
+# .. envvar:: linuxmuster_net_client__packages [[[
 #
 # List of additional "global" packages to install.
 linuxmuster_net_client__packages: []
 
-
-# .. envvar:: linuxmuster_net_client__group_packages
+                                                                   # ]]]
+# .. envvar:: linuxmuster_net_client__group_packages [[[
 #
 # List of packages for a group of hosts (only one group supported).
 linuxmuster_net_client__group_packages: []
 
-
-# .. envvar:: linuxmuster_net_client__packages_preset_absent
+                                                                   # ]]]
+# .. envvar:: linuxmuster_net_client__packages_preset_absent [[[
 #
 # List of preset "global" packages provided by this role to ensure that they
 # are absent/removed.
@@ -55,93 +55,81 @@ linuxmuster_net_client__packages_preset_absent: |
     []
   }}
 
-
-# .. envvar:: linuxmuster_net_client__packages_absent
+                                                                   # ]]]
+# .. envvar:: linuxmuster_net_client__packages_absent [[[
 #
 # List of additional "global" packages to remove.
 linuxmuster_net_client__packages_absent: []
 
-
-# .. envvar:: linuxmuster_net_client__group_packages_absent
+                                                                   # ]]]
+# .. envvar:: linuxmuster_net_client__group_packages_absent [[[
 #
 # List of packages for a group of hosts (only one group supported) remove.
 linuxmuster_net_client__group_packages_absent: []
-
-# .. )))
-
-# .. Linuxmuster.net user settings (((
-#
-# ---------------------------------
-#   Linuxmuster.net user settings
+                                                                   # ]]]
+                                                                   # ]]]
+# Linuxmuster.net user settings [[[
 # ---------------------------------
 
-# .. envvar:: linuxmuster_net_client__template_user
+# .. envvar:: linuxmuster_net_client__template_user [[[
 #
+# User name of the user which acts as template for teachers and students.
 linuxmuster_net_client__template_user: 'linuxadmin'
-
-# .. )))
-
-# .. Manage local user for offline usage (((
-#
-# ---------------------------------------
-#   Manage local user for offline usage
+                                                                   # ]]]
+                                                                   # ]]]
+# Manage local user for offline usage [[[
 # ---------------------------------------
 #
 # Work in progress:
 # TODO: Test on fresh system. Create user.
+#
+# Testing: Don’t allow any internet access for local user:
+# iptables -A OUTPUT -m owner --uid-owner localuser -j REJECT
 
-# .. envvar:: linuxmuster_net_client__local_user_enabled
+# .. envvar:: linuxmuster_net_client__local_user_enabled [[[
 #
 # Should a local user for students and teachers be created on the clients?
 # This user can be used if the client has been booted without network where
 # normal login does not work.
 linuxmuster_net_client__local_user_enabled: False
 
-
-# .. envvar:: linuxmuster_net_client__local_user_name
+                                                                   # ]]]
+# .. envvar:: linuxmuster_net_client__local_user_name [[[
 #
 # Unix user name to configure.
 linuxmuster_net_client__local_user_name: 'localuser'
 
-
-# .. envvar:: linuxmuster_net_client__local_user_script_filepath
+                                                                   # ]]]
+# .. envvar:: linuxmuster_net_client__local_user_script_filepath [[[
 #
 # File path of the sync_localuser script which resets the settings of the local
 # user with those of the template user.
 # If management of the local user is enabled by
-# ``linuxmuster_net_client__local_user_enabled``, this script will be invoked
+# :envvar:`linuxmuster_net_client__local_user_enabled`, this script will be invoked
 # on each reboot.
 linuxmuster_net_client__local_user_script_filepath: '/usr/local/bin/sync_localuser'
 
-
-# .. envvar:: linuxmuster_net_client__local_user_directories
+                                                                   # ]]]
+# .. envvar:: linuxmuster_net_client__local_user_directories [[[
 #
 # List of directories to create in the home directory of the local user.
 linuxmuster_net_client__local_user_directories:
   - 'Dokumente_tmp'
-
-# Testing: Don’t allow any internet access for local user:
-# iptables -A OUTPUT -m owner --uid-owner localuser -j REJECT
-# ## iptables -A INPUT -m owner --uid-owner localuser -j DROP
-
-# )))
-
-# .. Linuxmuster.net client configuration (((
-#
-# ----------------------------------------
-#   Linuxmuster.net client configuration
+                                                                   # ]]]
+                                                                   # ]]]
+# Linuxmuster.net client configuration [[[
 # ----------------------------------------
 #
 # FIXME: More documentation/rework of this section needed.
 
-# .. envvar:: linuxmuster_net_client__copy_custom_config_etc
+# .. envvar:: linuxmuster_net_client__copy_custom_config_etc [[[
 #
 # Configure the client by copying role provided configuration files to
 # :file:`/etc`.
 linuxmuster_net_client__copy_custom_config_etc: False
 
-
-# .. envvar:: linuxmuster_net_client__etc_delete_sync
+                                                                   # ]]]
+# .. envvar:: linuxmuster_net_client__etc_delete_sync [[[
 #
 # FIXME: Is this needed?
 # Directory paths on the client which should by configured by configuration provided by this role.
@@ -156,13 +144,9 @@ linuxmuster_net_client__copy_custom_config_etc: False
 #
 # By default, this option is disabled.
 linuxmuster_net_client__etc_delete_sync: []
-
-# .. )))
-
-# .. Client auto shutdown (((
-#
-# ------------------------
-#   Client auto shutdown
+                                                                   # ]]]
+                                                                   # ]]]
+# Client auto shutdown [[[
 # ------------------------
 #
 # Allows to shutdown clients at a specific time when no user is logged in.
@@ -170,32 +154,29 @@ linuxmuster_net_client__etc_delete_sync: []
 # shutdown or if they want to configure to work. If no answer is given, the
 # client is going to shutdown after 2 minutes.
 
-# .. envvar:: linuxmuster_net_client__auto_shutdown_enabled
+# .. envvar:: linuxmuster_net_client__auto_shutdown_enabled [[[
 #
 # Should client auto shutdown be enabled to the times configured by
-# ``linuxmuster_net_client__auto_shutdown_time``?
+# :envvar:`linuxmuster_net_client__auto_shutdown_time`?
 linuxmuster_net_client__auto_shutdown_enabled: True
 
-
-# .. envvar:: linuxmuster_net_client__auto_shutdown_time
+                                                                   # ]]]
+# .. envvar:: linuxmuster_net_client__auto_shutdown_time [[[
 #
 # Cron entries to perform the auto shutdown.
 linuxmuster_net_client__auto_shutdown_time:
   - { hour: '17', minute: '15'}
   - { hour: '20' }
   - { hour: '00' }
-
-# )))
-
-# .. Additional scripts (((
-#
-# ----------------------
-#   Additional scripts
+                                                                   # ]]]
+                                                                   # ]]]
+# Additional scripts [[[
 # ----------------------
 
-# .. envvar:: linuxmuster_net_client__additional_scripts_state
+# .. envvar:: linuxmuster_net_client__additional_scripts_state [[[
 #
 # Default state for additional scripts provided by this role.
 linuxmuster_net_client__additional_scripts_state: 'present'
-
-# )))
+                                                                   # ]]]
+                                                                   # ]]]
+                                                                   # ]]]

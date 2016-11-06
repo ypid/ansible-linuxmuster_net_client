@@ -3,16 +3,17 @@ Introduction
 
 .. include:: includes/all.rst
 
-
-The ``debops-contrib.linuxmuster_net_client`` role is meant for
+The ``ypid.linuxmuster_net_client`` role allows you to configure a linuxmuster.net client.
 
 
 Installation
 ~~~~~~~~~~~~
 
-This role requires at least Ansible ``v1.9.0``. To install it, run::
+This role requires at least Ansible ``v2.1.3``. To install it, run:
 
-    ansible-galaxy install ypid.linuxmuster_net_client
+.. code-block:: console
+
+   ansible-galaxy install ypid.linuxmuster_net_client
 
 ..
  Local Variables:

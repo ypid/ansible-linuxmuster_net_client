@@ -7,7 +7,7 @@
   with_flattened:
     - 'packages_preset_ypid'
     - 'packages_preset_ypid_absent'
-  tags: [ 'role::linuxmuster_net_client:software' ]
+  tags: [ 'role::linuxmuster_net_client:pkgs' ]
 
 - name: Install client software packages
   apt:
@@ -18,7 +18,7 @@
     - '{{ linuxmuster_net_client__packages_preset | list }}'
     - '{{ linuxmuster_net_client__packages        | list }}'
     - '{{ linuxmuster_net_client__group_packages  | list }}'
-  tags: [ 'role::linuxmuster_net_client:software' ]
+  tags: [ 'role::linuxmuster_net_client:pkgs' ]
 
 - name: Remove client software packages
   apt:
@@ -29,7 +29,7 @@
     - '{{ linuxmuster_net_client__packages_preset_absent | list }}'
     - '{{ linuxmuster_net_client__packages_absent        | list }}'
     - '{{ linuxmuster_net_client__group_packages_absent  | list }}'
-  tags: [ 'role::linuxmuster_net_client:software' ]
+  tags: [ 'role::linuxmuster_net_client:pkgs' ]
 
 ## )))
 
