@@ -21,6 +21,9 @@
 #    linuxmuster_net_client__packages_preset: []
 #
 # in your inventory.
+# Refer to the `README <https://github.com/ypid/ansible-linuxmuster_net_client#linuxmuster_net_client>`_
+# and the `./vars/ <https://github.com/ypid/ansible-linuxmuster_net_client/tree/master/vars>`_
+# directory of the role for details.
 linuxmuster_net_client__packages_preset: |
   {{
     (linuxmuster_net_client__packages_preset_ypid|d([]) | list) +
