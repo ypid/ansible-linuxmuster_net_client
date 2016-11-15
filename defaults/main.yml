@@ -153,13 +153,13 @@ linuxmuster_net_client__etc_delete_sync: []
 # ------------------------
 #
 # Allows to shutdown clients at a specific time when no user is logged in.
-# Logged in users are given the choice if they want are ok with the scheduled
-# shutdown or if they want to configure to work. If no answer is given, the
+# Logged in users are given the choice if they are ok with the scheduled
+# shutdown or if they want to continue. If no answer is given, the
 # client is going to shutdown after 2 minutes.
 
 # .. envvar:: linuxmuster_net_client__auto_shutdown_enabled [[[
 #
-# Should client auto shutdown be enabled to the times configured by
+# Should client auto shutdown be enabled for the times configured by
 # :envvar:`linuxmuster_net_client__auto_shutdown_time`?
 linuxmuster_net_client__auto_shutdown_enabled: True
 
