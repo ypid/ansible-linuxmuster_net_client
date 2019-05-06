@@ -75,6 +75,7 @@
     recursive: True
     links: True
     # set_remote_user: no
+    verify_host: True
   when: (linuxmuster_net_client__copy_custom_config_etc | bool)
 
 - name: Copy custom configuration files to the client and delete all other files
@@ -85,6 +86,7 @@
     links: True
     delete: True
     set_remote_user: no
+    verify_host: True
   when: item|d()
   with_flattened:
     - '{{ linuxmuster_net_client__etc_delete_sync }}'
